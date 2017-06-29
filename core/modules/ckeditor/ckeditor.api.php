@@ -21,7 +21,7 @@ use Drupal\editor\Entity\Editor;
  * @param $plugins
  *   An array of all the existing plugin definitions, passed by reference.
  *
- * @see \Drupal\ckeditor\CKEditorPluginManager
+ * @see CKEditorPluginManager
  */
 function hook_ckeditor_plugin_info_alter(array &$plugins) {
   $plugins['someplugin']['label'] = t('Better name');

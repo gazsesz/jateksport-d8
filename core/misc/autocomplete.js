@@ -177,8 +177,12 @@
     // Remove the current input.
     terms.pop();
     // Add the selected item.
-    terms.push(ui.item.value);
-
+    if (ui.item.value.search(',') > 0) {
+      terms.push('"' + ui.item.value + '"');
+    }
+    else {
+      terms.push(ui.item.value);
+    }
     event.target.value = terms.join(', ');
     // Return false to tell jQuery UI that we've filled in the value already.
     return false;

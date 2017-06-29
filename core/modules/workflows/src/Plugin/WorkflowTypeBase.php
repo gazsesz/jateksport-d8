@@ -145,12 +145,4 @@ abstract class WorkflowTypeBase extends PluginBase implements WorkflowTypeInterf
     return FALSE;
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getInitialState(WorkflowInterface $workflow) {
-    $ordered_states = $workflow->getStates();
-    return reset($ordered_states);
-  }
-
 }

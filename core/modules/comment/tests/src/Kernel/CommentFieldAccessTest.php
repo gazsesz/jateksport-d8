@@ -10,7 +10,7 @@ use Drupal\Core\Session\AnonymousUserSession;
 use Drupal\entity_test\Entity\EntityTest;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
-use Drupal\Tests\Traits\Core\GeneratePermutationsTrait;
+use Drupal\simpletest\TestBase;
 use Drupal\user\Entity\Role;
 use Drupal\user\RoleInterface;
 
@@ -23,7 +23,6 @@ use Drupal\user\RoleInterface;
 class CommentFieldAccessTest extends EntityKernelTestBase {
 
   use CommentTestTrait;
-  use GeneratePermutationsTrait;
 
   /**
    * Modules to install.
@@ -204,7 +203,7 @@ class CommentFieldAccessTest extends EntityKernelTestBase {
       'comment' => [$comment1, $comment2, $comment3, $comment4],
       'user' => [$comment_admin_user, $comment_enabled_user, $comment_no_edit_user, $comment_disabled_user, $anonymous_user]
     ];
-    $permutations = $this->generatePermutations($combinations);
+    $permutations = TestBase::generatePermutations($combinations);
 
     // Check access to administrative fields.
     foreach ($this->administrativeFields as $field) {

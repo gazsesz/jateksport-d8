@@ -20,8 +20,6 @@ use Drupal\Core\StreamWrapper\PrivateStream;
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::CHMOD_DIRECTORY.
- *
- * @see https://www.drupal.org/node/2418133
  */
 const FILE_CHMOD_DIRECTORY = FileSystem::CHMOD_DIRECTORY;
 
@@ -30,8 +28,6 @@ const FILE_CHMOD_DIRECTORY = FileSystem::CHMOD_DIRECTORY;
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::CHMOD_FILE.
- *
- * @see https://www.drupal.org/node/2418133
  */
 const FILE_CHMOD_FILE = FileSystem::CHMOD_FILE;
 
@@ -81,8 +77,6 @@ const FILE_STATUS_PERMANENT = 1;
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::uriScheme().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function file_uri_scheme($uri) {
   return \Drupal::service('file_system')->uriScheme($uri);
@@ -93,8 +87,6 @@ function file_uri_scheme($uri) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::validScheme().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function file_stream_wrapper_valid_scheme($scheme) {
   return \Drupal::service('file_system')->validScheme($scheme);
@@ -394,8 +386,6 @@ function file_save_htaccess($directory, $private = TRUE, $force_overwrite = FALS
  *
  * @deprecated in Drupal 8.0.x-dev and will be removed before Drupal 9.0.0.
  *   Use \Drupal\Component\PhpStorage\FileStorage::htaccessLines().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function file_htaccess_lines($private = TRUE) {
   return FileStorage::htaccessLines($private);
@@ -929,8 +919,6 @@ function file_unmanaged_delete_recursive($path, $callback = NULL) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::moveUploadedFile().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_move_uploaded_file($filename, $uri) {
   return \Drupal::service('file_system')->moveUploadedFile($filename, $uri);
@@ -1115,8 +1103,6 @@ function file_upload_max_size() {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::chmod().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_chmod($uri, $mode = NULL) {
   return \Drupal::service('file_system')->chmod($uri, $mode);
@@ -1127,8 +1113,6 @@ function drupal_chmod($uri, $mode = NULL) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::unlink().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_unlink($uri, $context = NULL) {
   return \Drupal::service('file_system')->unlink($uri, $context);
@@ -1139,8 +1123,6 @@ function drupal_unlink($uri, $context = NULL) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::realpath().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_realpath($uri) {
   return \Drupal::service('file_system')->realpath($uri);
@@ -1151,8 +1133,6 @@ function drupal_realpath($uri) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::dirname().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_dirname($uri) {
   return \Drupal::service('file_system')->dirname($uri);
@@ -1163,8 +1143,6 @@ function drupal_dirname($uri) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::basename().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_basename($uri, $suffix = NULL) {
   return \Drupal::service('file_system')->basename($uri, $suffix);
@@ -1176,8 +1154,6 @@ function drupal_basename($uri, $suffix = NULL) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::mkdir().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_mkdir($uri, $mode = NULL, $recursive = FALSE, $context = NULL) {
   return \Drupal::service('file_system')->mkdir($uri, $mode, $recursive, $context);
@@ -1188,8 +1164,6 @@ function drupal_mkdir($uri, $mode = NULL, $recursive = FALSE, $context = NULL) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::rmdir().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_rmdir($uri, $context = NULL) {
   return \Drupal::service('file_system')->rmdir($uri, $context);
@@ -1200,8 +1174,6 @@ function drupal_rmdir($uri, $context = NULL) {
  *
  * @deprecated in Drupal 8.0.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Core\File\FileSystem::tempnam().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function drupal_tempnam($directory, $prefix) {
   return \Drupal::service('file_system')->tempnam($directory, $prefix);
@@ -1246,8 +1218,6 @@ function file_directory_temp() {
  *
  * @deprecated in Drupal 8.3.x-dev, will be removed before Drupal 9.0.0.
  *   Use \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory().
- *
- * @see https://www.drupal.org/node/2418133
  */
 function file_directory_os_temp() {
   return ComponentFileSystem::getOsTemporaryDirectory();

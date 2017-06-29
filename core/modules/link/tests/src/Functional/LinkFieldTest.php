@@ -8,7 +8,6 @@ use Drupal\Core\Url;
 use Drupal\entity_test\Entity\EntityTest;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\link\LinkItemInterface;
-use Drupal\node\NodeInterface;
 use Drupal\Tests\BrowserTestBase;
 use Drupal\field\Entity\FieldStorageConfig;
 
@@ -96,7 +95,11 @@ class LinkFieldTest extends BrowserTestBase {
     // Create a node to test the link widget.
     $node = $this->drupalCreateNode();
 
-    $restricted_node = $this->drupalCreateNode(['status' => NodeInterface::NOT_PUBLISHED]);
+    // Create an entity with restricted view access.
+    $entity_test_no_label_access = EntityTest::create([
+      'name' => 'forbid_access',
+    ]);
+    $entity_test_no_label_access->save();
 
     // Define some valid URLs (keys are the entered values, values are the
     // strings displayed to the user).
@@ -131,7 +134,7 @@ class LinkFieldTest extends BrowserTestBase {
       // Entity URI displayed as ER autocomplete value when displayed in a form.
       'entity:node/1' => $node->label() . ' (1)',
       // URI for an entity that exists, but is not accessible by the user.
-      'entity:node/' . $restricted_node->id() => '- Restricted access - (' . $restricted_node->id() . ')',
+      'entity:entity_test/' . $entity_test_no_label_access->id() => '- Restricted access - (' . $entity_test_no_label_access->id() . ')',
       // URI for an entity that doesn't exist, but with a valid ID.
       'entity:user/999999' => 'entity:user/999999',
     ];
@@ -604,67 +607,6 @@ class LinkFieldTest extends BrowserTestBase {
         }
       }
     }
-  }
-
-
-  /**
-   * Tests editing a link to a non-node entity.
-   */
-  public function testEditNonNodeEntityLink() {
-
-    $entity_type_manager = \Drupal::entityTypeManager();
-    $entity_test_storage = $entity_type_manager->getStorage('entity_test');
-
-    // Create a field with settings to validate.
-    $this->fieldStorage = FieldStorageConfig::create([
-      'field_name' => 'field_link',
-      'entity_type' => 'entity_test',
-      'type' => 'link',
-      'cardinality' => 1,
-    ]);
-    $this->fieldStorage->save();
-    FieldConfig::create([
-      'field_storage' => $this->fieldStorage,
-      'label' => 'Read more about this entity',
-      'bundle' => 'entity_test',
-      'settings' => [
-        'title' => DRUPAL_OPTIONAL,
-      ],
-    ])->save();
-
-    $entity_type_manager
-      ->getStorage('entity_form_display')
-      ->load('entity_test.entity_test.default')
-      ->setComponent('field_link', [
-        'type' => 'link_default',
-      ])
-      ->save();
-
-    // Create a node and a test entity to have a possibly valid reference for
-    // both. Create another test entity that references the first test entity.
-    $entity_test_link = $entity_test_storage->create(['name' => 'correct link target']);
-    $entity_test_link->save();
-
-    $node = $this->drupalCreateNode(['wrong link target']);
-
-    $correct_link = 'entity:entity_test/' . $entity_test_link->id();
-    $entity_test = $entity_test_storage->create([
-      'name' => 'correct link target',
-      'field_link' => $correct_link,
-    ]);
-    $entity_test->save();
-
-    // Edit the entity and save it, verify the correct link is kept and not
-    // changed to point to a node. Currently, widget does not support non-node
-    // autocomplete and therefore must show the link unaltered.
-    $this->drupalGet($entity_test->toUrl('edit-form'));
-    $this->assertSession()->fieldValueEquals('field_link[0][uri]', $correct_link);
-    $this->drupalPostForm(NULL, [], 'Save');
-
-    $entity_test_storage->resetCache();
-    $entity_test = $entity_test_storage->load($entity_test->id());
-
-    $this->assertEquals($correct_link, $entity_test->get('field_link')->uri);
   }
 
   /**

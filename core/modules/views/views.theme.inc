@@ -858,13 +858,12 @@ function template_preprocess_views_view_rss(&$variables) {
   // Figure out which display which has a path we're using for this feed. If
   // there isn't one, use the global $base_url
   $link_display_id = $view->display_handler->getLinkDisplay();
-  /** @var \Drupal\views\Plugin\views\display\DisplayPluginBase $display */
-  if ($link_display_id && ($display = $view->displayHandlers->get($link_display_id)) && $display->isEnabled()) {
+  if ($link_display_id && $display = $view->displayHandlers->get($link_display_id)) {
     $url = $view->getUrl(NULL, $link_display_id);
   }
 
   /** @var \Drupal\Core\Url $url */
-  if (!empty($url)) {
+  if ($url) {
     $url_options = ['absolute' => TRUE];
     if (!empty($view->exposed_raw_input)) {
       $url_options['query'] = $view->exposed_raw_input;

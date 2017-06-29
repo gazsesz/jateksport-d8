@@ -10,8 +10,6 @@ use org\bovigo\vfs\visitor\vfsStreamStructureVisitor;
 /**
  * @coversDefaultClass \Drupal\KernelTests\KernelTestBase
  * @group PHPUnit
- * @group Test
- * @group KernelTests
  */
 class KernelTestBaseTest extends KernelTestBase {
 
@@ -139,21 +137,22 @@ class KernelTestBaseTest extends KernelTestBase {
   }
 
   /**
-   * Tests whether the fixture allows us to install modules and configuration.
+   * @covers ::getCompiledContainerBuilder
    *
-   * @see ::testSubsequentContainerIsolation()
+   * The point of this test is to have integration level testing.
    */
-  public function testContainerIsolation() {
+  public function testCompiledContainer() {
     $this->enableModules(['system', 'user']);
     $this->assertNull($this->installConfig('user'));
   }
 
   /**
-   * Tests whether the fixture can re-install modules and configuration.
+   * @covers ::getCompiledContainerBuilder
+   * @depends testCompiledContainer
    *
-   * @depends testContainerIsolation
+   * The point of this test is to have integration level testing.
    */
-  public function testSubsequentContainerIsolation() {
+  public function testCompiledContainerIsDestructed() {
     $this->enableModules(['system', 'user']);
     $this->assertNull($this->installConfig('user'));
   }

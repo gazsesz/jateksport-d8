@@ -22,7 +22,6 @@ use Drupal\rdf\RdfMappingInterface;
  *   entity_keys = {
  *     "id" = "id"
  *   },
- *   admin_permission = "administer site configuration",
  *   config_export = {
  *     "id",
  *     "targetEntityType",

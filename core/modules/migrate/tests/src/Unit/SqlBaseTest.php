@@ -111,14 +111,13 @@ class SqlBaseTest extends UnitTestCase {
         ['driver' => 'mysql', 'username' => 'different_from_map', 'password' => 'different_from_map'],
         ['driver' => 'mysql', 'username' => 'different_from_source', 'password' => 'different_from_source'],
       ],
-      // Returns false because driver is pgsql and the databases are not the
-      // same.
+      // Returns true because source and id map connection options are the same.
       [
-        FALSE,
         TRUE,
         TRUE,
-        ['driver' => 'pgsql', 'database' => '1.pgsql', 'username' => 'same_value', 'password' => 'same_value'],
-        ['driver' => 'pgsql', 'database' => '2.pgsql', 'username' => 'same_value', 'password' => 'same_value'],
+        TRUE,
+        ['driver' => 'pgsql', 'username' => 'same_value', 'password' => 'same_value'],
+        ['driver' => 'pgsql', 'username' => 'same_value', 'password' => 'same_value'],
       ],
       // Returns false because driver is sqlite and the databases are not the
       // same.
