@@ -1,8 +1,11 @@
 module:
   address: 0
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
   automated_cron: 0
   block: 0
   block_content: 0
+  block_place: 0
   breakpoint: 0
   ckeditor: 0
   color: 0
@@ -35,6 +38,9 @@ module:
   inline_entity_form: 0
   link: 0
   menu_ui: 0
+  migrate: 0
+  migrate_drupal: 0
+  migrate_drupal_ui: 0
   node: 0
   options: 0
   page_cache: 0
