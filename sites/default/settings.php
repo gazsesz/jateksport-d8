@@ -303,7 +303,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'gexweSYK3aMkJ3QmnCZg1J5io_zODmUonja3hanOqjF0sW-TGNLFgCkwlYzPjA4WsFBlLLcs1A';
 
 /**
  * Deployment identifier.
@@ -771,3 +771,16 @@ $settings['file_scan_ignore_directories'] = [
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+$databases['default']['default'] = array (
+  'database' => 'preduzec_jateksport',
+  'username' => 'preduzec_jateksp',
+  'password' => 'Jatek-951',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['install_profile'] = 'standard';
+#$config_directories['sync'] = 'sites/default/files/config_qZvqRWXG4mIvNLDElc64k_OL8oAC--R1q3Jjr4eTH7Zn6VCeTnWML4h5TLUqU60_jo7SZeOEDw/sync';
+$config_directories[CONFIG_SYNC_DIRECTORY] = './config/sync';

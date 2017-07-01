@@ -1,0 +1,25 @@
+[29-Jun-2017 15:45:42 UTC] Uncaught PHP Exception Symfony\Component\Routing\Exception\RouteNotFoundException: "Route "entity.profile.type.user_profile_form" does not exist." at /home/preduzec/public_html/jateksport/jateksport-d8.git/core/lib/Drupal/Core/Routing/RouteProvider.php line 190
+[30-Jun-2017 05:51:42 UTC] PHP Warning:  include(/home/preduzec/public_html/jateksport/jateksport-d8.git/vendor/composer/../../core/lib/Drupal/Core/DrupalKernel.php): failed to open stream: No such file or directory in /home/preduzec/public_html/jateksport/jateksport-d8.git/vendor/composer/ClassLoader.php on line 412
+[30-Jun-2017 05:51:42 UTC] PHP Stack trace:
+[30-Jun-2017 05:51:42 UTC] PHP   1. {main}() /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:0
+[30-Jun-2017 05:51:42 UTC] PHP   2. spl_autoload_call() /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:16
+[30-Jun-2017 05:51:42 UTC] PHP   3. Composer\Autoload\ClassLoader->loadClass() /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:16
+[30-Jun-2017 05:51:42 UTC] PHP   4. Composer\Autoload\includeFile() /home/preduzec/public_html/jateksport/jateksport-d8.git/vendor/composer/ClassLoader.php:301
+[30-Jun-2017 05:51:42 UTC] PHP Warning:  include(): Failed opening '/home/preduzec/public_html/jateksport/jateksport-d8.git/vendor/composer/../../core/lib/Drupal/Core/DrupalKernel.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/preduzec/public_html/jateksport/jateksport-d8.git/vendor/composer/ClassLoader.php on line 412
+[30-Jun-2017 05:51:42 UTC] PHP Stack trace:
+[30-Jun-2017 05:51:42 UTC] PHP   1. {main}() /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:0
+[30-Jun-2017 05:51:42 UTC] PHP   2. spl_autoload_call() /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:16
+[30-Jun-2017 05:51:42 UTC] PHP   3. Composer\Autoload\ClassLoader->loadClass() /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:16
+[30-Jun-2017 05:51:42 UTC] PHP   4. Composer\Autoload\includeFile() /home/preduzec/public_html/jateksport/jateksport-d8.git/vendor/composer/ClassLoader.php:301
+[30-Jun-2017 05:51:42 UTC] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php on line 16
+[30-Jun-2017 05:53:14 UTC] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php on line 16
+[30-Jun-2017 05:54:09 UTC] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/preduzec/public_html/jateksport/jateksport-d8.git/index.php on line 16

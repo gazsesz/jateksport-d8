@@ -1,0 +1,39 @@
+{
+  "chmod": "0755",
+  "files": [
+    "vendor/autoload.php"
+  ],
+  "finder": [
+    {
+      "name": "*",
+      "in": "src",
+      "exclude": ["Tests", "Box"]
+    },
+    {
+      "name": "*",
+      "in": "templates"
+    },
+    {
+      "name": "*.php",
+      "in": [
+        "vendor/composer",
+        "vendor/symfony/console",
+        "vendor/symfony/filesystem",
+        "vendor/symfony/polyfill-mbstring",
+        "vendor/twig"
+        ],
+      "exclude": [
+        "Tests",
+        "test"
+      ]
+    }
+  ],
+  "git-version": "git-version",
+  "main": "bin/dcg",
+  "output": "dcg.phar",
+  "bootstrap": "src/Box/PhpCompactor.php",
+  "compactors": [
+    "DrupalCodeGenerator\\Box\\PhpCompactor"
+  ],
+  "stub": true
+}
